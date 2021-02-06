@@ -1,0 +1,5 @@
+The multi_blank_cloze_front code is used on the front side of cloze cards to create multiple cloze deletions that are fill-in-the-blank. The user can type their answers into the blanks, and when they click out of the boxes the box will change color to indicate whether or not the input is correct.
+
+I suggest cloning the standard cloze template in Anki and editing the clone (so that you don't modify the original template).
+
+This code should work on both PC and mobile.
