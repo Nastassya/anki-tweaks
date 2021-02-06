@@ -1,0 +1,46 @@
+<span id="s1" hidden>{{Front}}
+</span>
+<span id="s2"></span>
+
+<script>
+var content = document.getElementById("s1").innerHTML;
+
+const split_sentence = content.split("|");
+
+const result = split_sentence.filter(word => !word.startsWith("^"));
+
+new_html = "";
+
+i = 0;
+id_value = 0
+
+const list_answers = split_sentence.filter(word => word.startsWith("^"))
+
+for (const value of result) {
+	if (i < result.length-1) {
+		new_html = new_html + "<span>" + result[i] + "</span>" + "<input type='text'id=answer_"+ String(id_value+1) +" onchange = \"myFunction(this.id, this.value)\">";
+		i += 1
+    id_value += 1}
+  else if (i == result.length-1) {
+  	new_html = new_html + "<span>" + result[i] + "</span>";
+  }
+}
+
+document.getElementById("s2").innerHTML = new_html;
+
+function myFunction(item_id, value) {
+	var answer_index = parseInt(item_id.charAt(item_id.length-1))-1
+  var x = document.getElementById(item_id)
+  if (value == "") {
+  	x.style.backgroundColor = 'transparent'
+  }
+  else {
+  	if(list_answers[answer_index].toLowerCase() == "^" + value.toLowerCase()) {
+ 			x.style.backgroundColor = "#99ff99";
+  	}
+ 		else {
+  		x.style.backgroundColor = "#ff9999"
+      }
+  }
+ }
+</script>
